@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Casa Naturista China | Administración</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f7f2;color:#203d2b}
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:245px;background:#0e5428;color:white;padding:22px 15px}
+.brand{text-align:center;border-bottom:1px solid #ffffff25;padding-bottom:20px;margin-bottom:18px}
+.brand img{width:92px;height:92px;object-fit:contain;background:white;border-radius:50%;padding:4px}
+.brand h2{font-size:17px;margin-top:8px}.brand small{opacity:.75}
+.menu button{width:100%;padding:13px 15px;margin:4px 0;border:0;border-radius:10px;background:transparent;color:white;text-align:left;font-size:15px;cursor:pointer}
+.menu button:hover,.menu button.active{background:#1b7538}
+.logout{position:absolute;bottom:20px;left:15px;right:15px;background:#ffffff15!important}
+.main{margin-left:245px;padding:25px;max-width:1500px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.top h1{font-size:30px;color:#12612f}.admin{background:white;padding:10px 15px;border-radius:12px;box-shadow:0 2px 10px #0000000b}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:25px}
+.card{background:white;border-radius:16px;padding:20px;box-shadow:0 3px 15px #0000000a;border-left:5px solid #65a815}
+.card span{color:#738076;font-size:14px}.card strong{display:block;font-size:29px;color:#12612f;margin-top:8px}
+.panel{background:white;border-radius:18px;padding:22px;box-shadow:0 3px 15px #0000000a;margin-bottom:22px}
+.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.panel h2{color:#12612f;font-size:21px}
+.btn{border:0;border-radius:9px;padding:10px 16px;background:#177236;color:white;font-weight:bold;cursor:pointer}
+.btn:hover{background:#0d5428}
+table{width:100%;border-collapse:collapse}
+th,td{padding:13px 10px;text-align:left;border-bottom:1px solid #e8eee7}
+th{color:#59705d;font-size:13px}.status{padding:5px 10px;border-radius:20px;background:#e5f5df;color:#377218;font-size:12px;font-weight:bold}
+.actions button{border:0;background:none;cursor:pointer;margin-right:8px;font-size:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.activity{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid #edf1eb}.dot{width:10px;height:10px;background:#65a815;border-radius:50%;margin-top:5px}
+@media(max-width:950px){.sidebar{width:190px}.main{margin-left:190px}.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.sidebar{position:relative;width:100%;height:auto}.logout{position:static;margin-top:10px}.main{margin-left:0}.cards,.grid2{grid-template-columns:1fr}.top{gap:10px;align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+ <div class="brand"><img src="logo.png"><h2>CASA NATURISTA CHINA</h2><small>Panel administrativo</small></div>
+ <div class="menu">
+  <button class="active" onclick="show('dashboard',this)">📊 Dashboard</button>
+  <button onclick="show('productos',this)">🌿 Productos</button>
+  <button onclick="show('pedidos',this)">🛒 Pedidos</button>
+  <button onclick="show('clientes',this)">👥 Clientes</button>
+  <button onclick="show('inventario',this)">📦 Inventario</button>
+  <button onclick="show('reportes',this)">📈 Reportes</button>
+  <button onclick="show('config',this)">⚙️ Configuración</button>
+ </div>
+ <button class="menu button logout" onclick="alert('Sesión cerrada')">↪ Cerrar sesión</button>
+</aside>
+
+<main class="main">
+ <div class="top"><div><h1>Dashboard</h1><p>Resumen general de Casa Naturista China</p></div><div class="admin">👤 Administrador</div></div>
+
+<section id="dashboard">
+ <div class="cards">
+  <div class="card"><span>Ventas del mes</span><strong>S/ 8,450</strong></div>
+  <div class="card"><span>Pedidos</span><strong>126</strong></div>
+  <div class="card"><span>Clientes</span><strong>348</strong></div>
+  <div class="card"><span>Productos</span><strong>84</strong></div>
+ </div>
+ <div class="grid2">
+  <div class="panel"><div class="panel-head"><h2>Pedidos recientes</h2><button class="btn" onclick="alert('Módulo de pedidos')">Ver todos</button></div>
+   <table><tr><th>Pedido</th><th>Cliente</th><th>Total</th><th>Estado</th></tr>
+   <tr><td>#CN-1025</td><td>María López</td><td>S/ 85</td><td><span class="status">Pagado</span></td></tr>
+   <tr><td>#CN-1024</td><td>Juan Pérez</td><td>S/ 120</td><td><span class="status">Enviado</span></td></tr>
+   <tr><td>#CN-1023</td><td>Ana Torres</td><td>S/ 56</td><td><span class="status">Pendiente</span></td></tr>
+   </table>
+  </div>
+  <div class="panel"><div class="panel-head"><h2>Actividad reciente</h2></div>
+   <div class="activity"><div class="dot"></div><div>Nuevo pedido registrado<br><small>Hace 10 minutos</small></div></div>
+   <div class="activity"><div class="dot"></div><div>Producto actualizado: Té Herbal<br><small>Hace 35 minutos</small></div></div>
+   <div class="activity"><div class="dot"></div><div>Nuevo cliente registrado<br><small>Hace 1 hora</small></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="productos" style="display:none"><div class="panel"><div class="panel-head"><h2>Gestión de productos</h2><button class="btn" onclick="alert('Formulario para nuevo producto')">+ Nuevo producto</button></div><p>Aquí podrás registrar, editar, eliminar y consultar los productos de la tienda.</p></div></section>
+<section id="pedidos" style="display:none"><div class="panel"><h2>Gestión de pedidos</h2><p style="margin-top:12px">Consulta y administra todos los pedidos realizados por los clientes.</p></div></section>
+<section id="clientes" style="display:none"><div class="panel"><h2>Gestión de clientes</h2><p style="margin-top:12px">Administra los datos y registros de los clientes.</p></div></section>
+<section id="inventario" style="display:none"><div class="panel"><h2>Control de inventario</h2><p style="margin-top:12px">Revisa existencias, stock mínimo y productos agotados.</p></div></section>
+<section id="reportes" style="display:none"><div class="panel"><h2>Reportes</h2><p style="margin-top:12px">Consulta reportes de ventas, pedidos, clientes e inventario.</p></div></section>
+<section id="config" style="display:none"><div class="panel"><h2>Configuración</h2><p style="margin-top:12px">Configuración general del sistema y cuenta administrativa.</p></div></section>
+</main>
+<script>
+function show(id,btn){
+ document.querySelectorAll('main section').forEach(s=>s.style.display='none');
+ document.getElementById(id).style.display='block';
+ document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ document.querySelector('.top h1').textContent=id.charAt(0).toUpperCase()+id.slice(1);
+}
+</script>
+</body>
+</html>
